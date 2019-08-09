@@ -1,4 +1,4 @@
-package com.zhouhc.datastruct;
+package com.zhouhc.alldatastruct;
 
 /**
  * Hello world!

@@ -1,9 +1,10 @@
-package com.zhouhc.othertest;
+package com.zhouhc.alldatastruct;
+
+import static org.junit.Assert.assertTrue;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Test;
-
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -11,18 +12,20 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @ClassName: TestOthers
- * @Description: TODO
- * @Author: zhouhc
- * @CreateDate: 2019/8/6 22:56
+ * Unit test for simple App.
  */
+public class AppTest 
+{
 
-
-//动态扩容
-public class TestOthers {
-
-    private static Logger LOGGER = LogManager.getLogger(TestOthers.class);
-
+    private static Logger LOGGER = LogManager.getLogger(AppTest.class);
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void shouldAnswerWithTrue()
+    {
+        assertTrue( true );
+    }
 
     @Test
     public void test() {
@@ -48,6 +51,4 @@ public class TestOthers {
 
         LOGGER.info(stringList);
     }
-
-
 }
