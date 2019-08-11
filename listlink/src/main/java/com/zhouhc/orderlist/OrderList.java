@@ -39,6 +39,14 @@ public class OrderList<T> {
        elementData[size++] = e;
     }
 
+    public void add(int index,T e){
+        ensurexpansion(size+1);
+        //开始
+        System.arraycopy(elementData,index,elementData,index+1,(size-index));
+        elementData[index] = e;
+        size++;
+    }
+
     public void ensurexpansion(int mincount){
         //判断数组是否为空
        if(elementData == DEFAULT_INIT){
@@ -100,8 +108,9 @@ public class OrderList<T> {
     //清空数组
     public void cleanList(){
         //数组清空
+        for(int i=0;i<size;i++)
+            elementData[i]=null;
         size = 0;
-        elementData = DEFAULT_INIT;
     }
 
     //判断数组是否为空
@@ -115,7 +124,7 @@ public class OrderList<T> {
        T e = getElement(index);
        //数组的溢出
         System.arraycopy(elementData,index+1,elementData,index,(size-index-1));
-        elementData[size--] = null;
+        elementData[--size] = null;
         return e;
     }
 
@@ -129,6 +138,5 @@ public class OrderList<T> {
     @Override
     public String toString() {
         return Arrays.toString(Arrays.copyOf(elementData,size));
-
     }
 }

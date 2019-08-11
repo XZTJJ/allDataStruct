@@ -52,12 +52,18 @@ public class OrderListTest {
 
         //删除元素
         LOG.info("原数组 : " + od);
-        int index = 5;
+        int index = od.size()-1;
         String t = od.remove(index);
         LOG.info("删除索引为"+index+"数组 : " + od);
 
         //数组越界测试
         //od.getElement(100);
         //od.remove(100);
+
+        //任意位置插入
+        index = 10;
+        od.add(index,"300");
+        LOG.info("在下标为"+index+"插入的数组 : " + od);
+
     }
 }
