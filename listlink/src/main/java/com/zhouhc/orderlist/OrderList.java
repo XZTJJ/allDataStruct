@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 /**
  * @ClassName: OrderList
- * @Description: TODO
+ * @Description: 随机存储结构基本
  * @Author: zhouhc
  * @CreateDate: 2019/8/9 20:32
  */
