@@ -51,13 +51,13 @@ public class ChainList<T> {
     }
 
     //头插法
-    public void headAdd(Node<T> tNode) {
+    private void headAdd(Node<T> tNode) {
         tNode.next = headNode.next;
         headNode.next = tNode;
     }
 
     //尾插法
-    public void tailAdd(Node<T> tNode) {
+    private void tailAdd(Node<T> tNode) {
         //失踪需要判断
         if (tailNode == null) {
             tailNode = headNode.next = tNode;
@@ -88,7 +88,7 @@ public class ChainList<T> {
     }
 
     //初始化元素,主要是为了headNode操作
-    public void initheadTail() {
+    private void initheadTail() {
         tailNode = headNode = null;
         headNode = new Node<T>(null, null);
     }
@@ -145,7 +145,7 @@ public class ChainList<T> {
     }
 
     //判断是否越界
-    public void rangeCheck(int index) {
+    private void rangeCheck(int index) {
         if (index < 0 || index >= size)
             throw new RuntimeException("索引不合理");
     }

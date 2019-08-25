@@ -47,7 +47,7 @@ public class OrderList<T> {
         size++;
     }
 
-    public void ensurexpansion(int mincount){
+    private void ensurexpansion(int mincount){
         //判断数组是否为空
        if(elementData == DEFAULT_INIT){
            mincount = Math.max(DEFAULT_LENGTH,mincount);
@@ -59,7 +59,7 @@ public class OrderList<T> {
 
     }
 
-    public void grow(int mincount){
+    private void grow(int mincount){
         //下面所有数据都不需要考虑类型溢出问题
         int oldLenght = elementData.length;
         int newLength = oldLenght + (oldLenght >> 1);
