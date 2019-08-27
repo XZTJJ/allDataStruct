@@ -10,6 +10,7 @@
     <modules>
         <module>listlink</module>
         <module>othertest</module>
+        <module>stackqueue</module>
     </modules>
 
     <name>alldatastruct</name>
