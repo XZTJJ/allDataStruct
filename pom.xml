@@ -11,6 +11,7 @@
         <module>listlink</module>
         <module>othertest</module>
         <module>stackqueue</module>
+        <module>stringstruct</module>
     </modules>
 
     <name>alldatastruct</name>
