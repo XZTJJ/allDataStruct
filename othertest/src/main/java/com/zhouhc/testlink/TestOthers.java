@@ -1,8 +1,8 @@
 package com.zhouhc.testlink;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.lang.reflect.Field;
@@ -21,7 +21,7 @@ import java.util.List;
 //动态扩容
 public class TestOthers {
 
-    private static Logger LOGGER = LogManager.getLogger(TestOthers.class);
+    private static Logger LOG = LoggerFactory.getLogger(TestOthers.class);
 
 
     @Test
@@ -36,17 +36,17 @@ public class TestOthers {
         try {
             Field sizeF = stringList.getClass().getDeclaredField("size");
             sizeF.setAccessible(true);
-            LOGGER.info(sizeF.get(stringList));
+            LOG.info(sizeF.get(stringList)+"");
 
             Field elemArray = stringList.getClass().getDeclaredField("elementData");
             elemArray.setAccessible(true);
-            LOGGER.info(Arrays.toString((Object[]) elemArray.get(stringList)));
+            LOG.info(Arrays.toString((Object[]) elemArray.get(stringList)));
         } catch (Exception e) {
-            LOGGER.error("", e);
+            LOG.error("", e);
         }
 
 
-        LOGGER.info(stringList);
+        LOG.info(stringList+"");
     }
 
 

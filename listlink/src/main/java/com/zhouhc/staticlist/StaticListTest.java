@@ -1,8 +1,9 @@
 package com.zhouhc.staticlist;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: StaticListTest
@@ -11,7 +12,7 @@ import org.junit.Test;
  * @CreateDate: 2019/8/13 23:55
  */
 public class StaticListTest {
-    private static Logger LOG = LogManager.getLogger(StaticListTest.class);
+    private static Logger LOG = LoggerFactory.getLogger(StaticListTest.class);
 
     @Test
     public void test() {

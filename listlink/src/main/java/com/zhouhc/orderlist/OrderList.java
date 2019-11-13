@@ -1,7 +1,7 @@
 package com.zhouhc.orderlist;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
@@ -13,7 +13,7 @@ import java.util.Arrays;
  */
 public class OrderList<T> {
 
-    private static Logger LOG = LogManager.getLogger(OrderList.class);
+    private static Logger LOG = LoggerFactory.getLogger(OrderList.class);
 
     //默认长度
     private final static int DEFAULT_LENGTH = 10;

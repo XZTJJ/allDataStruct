@@ -2,8 +2,9 @@ package com.zhouhc.stack.arithmeticstack;
 
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -19,7 +20,7 @@ import static com.zhouhc.stack.arithmeticstack.OperatorEnum.*;
 //四则运算表达式求值，利用栈的性质来计算
 public class ArithmeticStack {
 
-    private static Logger LOG = LogManager.getLogger(ArithmeticStack.class);
+    private static Logger LOG = LoggerFactory.getLogger(ArithmeticStack.class);
 
     //用于构建后缀表达式
     private ArrayList subfix = new ArrayList();

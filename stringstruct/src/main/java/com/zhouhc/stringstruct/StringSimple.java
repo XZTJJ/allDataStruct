@@ -1,8 +1,8 @@
 package com.zhouhc.stringstruct;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: StringSimple
@@ -13,7 +13,7 @@ import org.junit.Test;
 //朴素字符串皮匹配算法
 public class StringSimple {
     //字符匹配
-    private static Logger LOG = LogManager.getLogger(StringSimple.class);
+    private static Logger LOG = LoggerFactory.getLogger(StringSimple.class);
 
     @Test
     public void testStringSimple() {

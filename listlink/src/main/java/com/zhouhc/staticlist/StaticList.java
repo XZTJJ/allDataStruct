@@ -1,7 +1,9 @@
 package com.zhouhc.staticlist;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
@@ -22,7 +24,7 @@ import java.util.Arrays;
 public class StaticList<T> {
 
     //日志文件
-    private static Logger LOG = LogManager.getLogger(StaticList.class);
+    private static Logger LOG = LoggerFactory.getLogger(StaticList.class);
     //存储数据
     private transient Object[] tNode;
     //默认长度

@@ -1,8 +1,8 @@
 package com.zhouhc.othertest;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
@@ -14,7 +14,7 @@ import java.util.Arrays;
  */
 public class NextString {
 
-    private static Logger LOG = LogManager.getLogger(NextString.class);
+    private static Logger LOG = LoggerFactory.getLogger(NextString.class);
 
     @Test
     public void testString(){
@@ -44,9 +44,9 @@ public class NextString {
         }
 
         if(j>=strsubArray.length-1)
-            LOG.info(i-strsubArray.length);
+            LOG.info(i-strsubArray.length+"");
         else
-            LOG.info(-1);
+            LOG.info(-1+"");
     }
 
 

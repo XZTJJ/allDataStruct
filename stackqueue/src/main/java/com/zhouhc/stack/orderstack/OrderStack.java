@@ -1,7 +1,7 @@
 package com.zhouhc.stack.orderstack;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
@@ -15,7 +15,7 @@ import java.util.Arrays;
 //顺序存储结构的栈
 public class OrderStack<T> {
 
-    private static Logger LOG = LogManager.getLogger(OrderStack.class);
+    private static Logger LOG = LoggerFactory.getLogger(OrderStack.class);
 
     //用于标记栈顶,也可以用于标记数组的大小
     private int top;

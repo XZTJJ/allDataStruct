@@ -1,8 +1,9 @@
 package com.zhouhc.stack.doublesharestack;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: DoubleShareStackTest
@@ -11,7 +12,7 @@ import org.junit.Test;
  * @CreateDate: 2019/8/28 0:04
  */
 public class DoubleShareStackTest {
-    private static Logger LOG  = LogManager.getLogger(DoubleShareStackTest.class);
+    private static Logger LOG = LoggerFactory.getLogger(DoubleShareStackTest.class);
 
     @Test
     public void test(){

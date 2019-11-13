@@ -1,8 +1,9 @@
 package com.zhouhc.orderlist;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  * @CreateDate: 2019/8/9 21:44
  */
 public class OrderListTest {
-    private static Logger LOG = LogManager.getLogger(OrderListTest.class);
+    private static Logger LOG = LoggerFactory.getLogger(OrderListTest.class);
 
     @Test
     public void testOrder() {

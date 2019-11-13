@@ -1,8 +1,8 @@
 package com.zhouhc.stringstruct;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
@@ -16,7 +16,7 @@ import java.util.Arrays;
 //KMP匹配算法
 public class StringKMP {
 
-    private static Logger LOG = LogManager.getLogger(StringKMP.class);
+    private static Logger LOG = LoggerFactory.getLogger(StringKMP.class);
 
     @Test
     public void testStringKMP() {

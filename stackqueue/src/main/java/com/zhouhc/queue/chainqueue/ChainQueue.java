@@ -1,7 +1,8 @@
 package com.zhouhc.queue.chainqueue;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: ChainQueue
@@ -11,7 +12,7 @@ import org.apache.log4j.Logger;
  */
 public class ChainQueue<T> {
     //日志
-    private static Logger LOG = LogManager.getLogger(ChainQueue.class);
+    private static Logger LOG = LoggerFactory.getLogger(ChainQueue.class);
     //头尾指针
     private Node headNode;
     private Node tailNode;

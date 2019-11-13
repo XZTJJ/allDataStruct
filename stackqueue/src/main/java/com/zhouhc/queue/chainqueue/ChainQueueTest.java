@@ -1,8 +1,9 @@
 package com.zhouhc.queue.chainqueue;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: ChainQueueTest
@@ -11,7 +12,7 @@ import org.junit.Test;
  * @CreateDate: 2019/9/16 22:19
  */
 public class ChainQueueTest {
-    private static Logger LOG = LogManager.getLogger(ChainQueueTest.class);
+    private static Logger LOG = LoggerFactory.getLogger(ChainQueueTest.class);
 
 
     @Test

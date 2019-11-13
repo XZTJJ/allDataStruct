@@ -1,7 +1,8 @@
 package com.zhouhc.stack.doublesharestack;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: DoubleShareStack
@@ -13,7 +14,7 @@ import org.apache.log4j.Logger;
 //双栈共享一个顺序存储空间
 public class DoubleShareStack<T> {
 
-    private static Logger LOG = LogManager.getLogger(DoubleShareStack.class);
+    private static Logger LOG = LoggerFactory.getLogger(DoubleShareStack.class);
 
     private static final int size = 12;
 

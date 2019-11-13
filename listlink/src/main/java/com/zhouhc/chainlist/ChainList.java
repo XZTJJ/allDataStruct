@@ -1,7 +1,9 @@
 package com.zhouhc.chainlist;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 
@@ -13,7 +15,7 @@ import java.util.LinkedList;
  */
 public class ChainList<T> {
 
-    private static Logger LOG = LogManager.getLogger(ChainList.class);
+    private static Logger LOG = LoggerFactory.getLogger(ChainList.class);
 
     //数组大小表示
     private int size;

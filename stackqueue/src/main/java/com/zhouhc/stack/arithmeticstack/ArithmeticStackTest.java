@@ -1,8 +1,9 @@
 package com.zhouhc.stack.arithmeticstack;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ import java.util.Scanner;
 //测试数据, 表达式暂时只支持+-*/()这些运算符
 public class ArithmeticStackTest {
 
-    private static Logger LOG = LogManager.getLogger(ArithmeticStackTest.class);
+    private static Logger LOG = LoggerFactory.getLogger(ArithmeticStackTest.class);
 
 
     //后缀表达式输入

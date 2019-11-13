@@ -1,8 +1,9 @@
 package com.zhouhc.stack.orderstack;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: OrderStatckTest
@@ -11,7 +12,7 @@ import org.junit.Test;
  * @CreateDate: 2019/8/27 0:04
  */
 public class OrderStatckTest {
-    private static Logger LOG = LogManager.getLogger(OrderStatckTest.class);
+    private static Logger LOG = LoggerFactory.getLogger(OrderStatckTest.class);
 
     @Test
     public void test() {

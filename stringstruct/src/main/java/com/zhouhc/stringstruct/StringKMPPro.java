@@ -1,8 +1,8 @@
 package com.zhouhc.stringstruct;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
@@ -17,7 +17,7 @@ import java.util.Arrays;
 //如  aaaabcde 和 aaaaaX
 public class StringKMPPro {
 
-    private static Logger LOG = LogManager.getLogger(StringKMP.class);
+    private static Logger LOG = LoggerFactory.getLogger(StringKMPPro.class);
 
     @Test
     public void testStringKMP() {

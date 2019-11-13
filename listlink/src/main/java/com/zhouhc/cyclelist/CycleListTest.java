@@ -1,8 +1,9 @@
 package com.zhouhc.cyclelist;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import sun.util.locale.provider.LocaleServiceProviderPool;
 
 /**
@@ -13,7 +14,7 @@ import sun.util.locale.provider.LocaleServiceProviderPool;
  */
 public class CycleListTest {
 
-    private static Logger LOG = LogManager.getLogger(CycleListTest.class);
+    private static Logger LOG = LoggerFactory.getLogger(CycleListTest.class);
 
     @Test
     public void test() {

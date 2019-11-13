@@ -1,7 +1,8 @@
 package com.zhouhc.doublelist;
 
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: DoubleListTest
@@ -10,7 +11,7 @@ import org.junit.Test;
  * @CreateDate: 2019/8/25 23:07
  */
 public class DoubleListTest {
-    private static Logger LOG = Logger.getLogger(DoubleListTest.class);
+    private static Logger LOG = LoggerFactory.getLogger(DoubleListTest.class);
 
     @Test
     public void test(){

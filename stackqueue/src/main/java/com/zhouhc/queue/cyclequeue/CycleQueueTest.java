@@ -1,8 +1,8 @@
 package com.zhouhc.queue.cyclequeue;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: CycleQueueTest
@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class CycleQueueTest {
 
-    private static Logger LOG = LogManager.getLogger(CycleQueueTest.class);
+    private static Logger LOG = LoggerFactory.getLogger(CycleQueueTest.class);
 
     @Test
     public void test(){

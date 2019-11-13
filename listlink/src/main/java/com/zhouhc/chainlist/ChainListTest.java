@@ -1,9 +1,9 @@
 package com.zhouhc.chainlist;
 
-import org.apache.log4j.Logger;
 
-import org.apache.log4j.LogManager;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -14,8 +14,7 @@ import org.junit.Test;
  */
 public class ChainListTest {
 
-    private static Logger LOG = LogManager.getLogger(ChainListTest.class);
-
+    private static Logger LOG = LoggerFactory.getLogger(ChainListTest.class);
     @Test
     public void test(){
         ChainList<String> cl = new ChainList<String>();

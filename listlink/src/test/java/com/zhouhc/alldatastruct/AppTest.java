@@ -2,9 +2,9 @@ package com.zhouhc.alldatastruct;
 
 import static org.junit.Assert.assertTrue;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.List;
 public class AppTest 
 {
 
-    private static Logger LOGGER = LogManager.getLogger(AppTest.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(AppTest.class);
     /**
      * Rigorous Test :-)
      */
@@ -39,7 +39,7 @@ public class AppTest
         try {
             Field sizeF = stringList.getClass().getDeclaredField("size");
             sizeF.setAccessible(true);
-            LOGGER.info(sizeF.get(stringList));
+            LOGGER.info(sizeF.get(stringList).toString());
 
             Field elemArray = stringList.getClass().getDeclaredField("elementData");
             elemArray.setAccessible(true);
@@ -49,6 +49,6 @@ public class AppTest
         }
 
 
-        LOGGER.info(stringList);
+        LOGGER.info(stringList.toString());
     }
 }

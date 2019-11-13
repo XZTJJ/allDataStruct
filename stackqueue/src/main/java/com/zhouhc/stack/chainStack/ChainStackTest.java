@@ -1,8 +1,8 @@
 package com.zhouhc.stack.chainStack;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @ClassName: ChainStackTest
@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class ChainStackTest {
 
-    private static Logger LOG = LogManager.getLogger(ChainStackTest.class);
+    private static Logger LOG = LoggerFactory.getLogger(ChainStackTest.class);
 
     @Test
     public void test() {
