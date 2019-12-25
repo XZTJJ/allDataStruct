@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
  */
 
 //二叉树的遍历创建，遍历，树高，查找节点，节点的双亲
+//二叉树的输入的形式为 "AB#D##C##" ，一个树没有孩子节点，用#标识
 public class BinaryTreeStruct<T> {
 
     private static Logger LOG = LoggerFactory.getLogger(BinaryTreeStruct.class);
@@ -23,7 +24,7 @@ public class BinaryTreeStruct<T> {
     public BinaryTreeStruct() {
     }
 
-    //创建一棵树
+    //创建一棵树，使用的是递归的方式，十分的方便
     public BinaryTreeNode createBinaryTree(T[] inputArrays) {
 
         if (rootNode != null)
@@ -58,7 +59,7 @@ public class BinaryTreeStruct<T> {
         return hight;
     }
 
-    //递归求树高
+    //递归求树高，逐一左右孩子谁高，返回谁
     private int recursiveGetTreeHight(BinaryTreeNode rootTreeNode, int height) {
         if (rootTreeNode == null)
             return height;
@@ -71,6 +72,7 @@ public class BinaryTreeStruct<T> {
 
     //查找某个节点
     public BinaryTreeNode findANode(BinaryTreeNode rootTreeNode, T e) {
+        //处理树为空的情况
         if (rootTreeNode == null)
             return null;
         BinaryTreeNode current = recursiveFindANode(rootTreeNode, e, null);
@@ -91,8 +93,10 @@ public class BinaryTreeStruct<T> {
 
     //查找某个节点父节点
     public BinaryTreeNode findANodeParent(BinaryTreeNode rootTreeNode, T e) {
+        //树为空直接返回
         if (rootTreeNode == null)
             return null;
+        //处理输入的节点为根节点
         if (rootTreeNode.data.equals(e))
             return null;
         BinaryTreeNode parentNode = recursiveFindANodeParent(rootTreeNode, e, null);
@@ -105,7 +109,7 @@ public class BinaryTreeStruct<T> {
             return rootTreeNode;
         if (rootTreeNode.rchild != null && rootTreeNode.rchild.data.equals(e))
             return rootTreeNode;
-        //递归左右子树
+        //递归左右子树,加上tempTreeNode == null这个条件，是为了防找到数据了，树不用进行不必要的递归，而是直接一层层返回tempTreeNode
         if (rootTreeNode.lchild != null && tempTreeNode == null)
             tempTreeNode = recursiveFindANodeParent(rootTreeNode.lchild, e, tempTreeNode);
         if (rootTreeNode.rchild != null && tempTreeNode == null)
@@ -113,7 +117,7 @@ public class BinaryTreeStruct<T> {
         return tempTreeNode;
     }
 
-    //先序遍历
+    //先序遍历,顺序 :  根 左 右
     public void preOrderTraverse(BinaryTreeNode rootTreeNode) {
         if (rootTreeNode == null)
             return;
@@ -123,7 +127,7 @@ public class BinaryTreeStruct<T> {
 
     }
 
-    //中序遍历
+    //中序遍历  左 根 右
     public void inOrderTraverse(BinaryTreeNode rootTreeNode) {
         if (rootTreeNode == null)
             return;
@@ -132,7 +136,7 @@ public class BinaryTreeStruct<T> {
         inOrderTraverse(rootTreeNode.rchild);
     }
 
-    //后序遍历
+    //后序遍历  左 右 根
     public void postOrderTraverse(BinaryTreeNode rootTreeNode) {
         if (rootTreeNode == null)
             return;

@@ -5,7 +5,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.management.StringValueExp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +23,7 @@ public class HuffManTree {
     //构建一颗哈夫曼树
     public HuffManNode<String> createAHuffManTree(String input) {
         StringBuffer stringBuffer = new StringBuffer();
-        //统计
+        //统计,同时构建了节点
         Map<String, HuffManNode<String>> wordCount = getWordCount(input);
         //打印统计结果
         stringBuffer.append("字符出现评论统计: ");
@@ -33,7 +32,7 @@ public class HuffManTree {
             LOG.info(stringBuffer.toString());
         stringBuffer.setLength(0);
         List<HuffManNode<String>> listNode = new ArrayList<HuffManNode<String>>();
-        //排序以及排序完成
+        //对节点按照频率从小到大的顺序排序以及排序完成
         for (Map.Entry<String, HuffManNode<String>> tempMap : wordCount.entrySet())
             sortListNode(listNode, tempMap.getValue());
         //打印完成的排序
@@ -63,7 +62,7 @@ public class HuffManTree {
         HuffManNode<String> tempNode = stringHuffManNode;
         //循环
         while(index < inputArrays.length){
-            //每次都重新赋值为根节点，便于编译
+            //每次都重新赋值为根节点，便于解码
             tempNode = stringHuffManNode;
             //结束标志
             while(true){
@@ -72,7 +71,7 @@ public class HuffManTree {
                     tempNode = tempNode.lchild;
                 else
                     tempNode = tempNode.rchild;
-                //循环结束标识
+                //循环结束标识,数据域不为空，就找到
                  if(StringUtils.isNotEmpty(tempNode.data))
                      break;
                  index++;
@@ -83,7 +82,8 @@ public class HuffManTree {
         return stringBuffer.toString();
     }
 
-    //用于统计单词出现的频率
+    //用于统计单词出现的频率，形式为 A ---> A对应的哈夫曼节点
+    //频率存储在节点中count中
     private Map<String, HuffManNode<String>> getWordCount(String input) {
         //返回结果
         Map<String, HuffManNode<String>> resultMap = new HashMap<String, HuffManNode<String>>();
@@ -98,7 +98,7 @@ public class HuffManTree {
         return resultMap;
     }
 
-    //二分查找插入数据
+    //二分查找插入数据，经典算法
     private void sortListNode(List<HuffManNode<String>> listNode, HuffManNode<String> obj) {
         //左右标识，以及初始化
         int left = 0;
@@ -125,14 +125,14 @@ public class HuffManTree {
             listNode.add(middle + 1, obj);
     }
 
-    //构建一个哈夫曼树
+    //构建一个哈夫曼树，每次构建一个节点就重新排序
     private HuffManNode<String> toCreateAHuffManTree(List<HuffManNode<String>> listNode) {
         //当List只剩下一个节点的时候，才结束
         while (listNode.size() > 1) {
             //因为已经是一个有序的序列，所以直接取最小的两个数据
             HuffManNode<String> leastNode = listNode.get(0);
             HuffManNode<String> lessNode = listNode.get(1);
-            //上面两个节点组成的一个根节点
+            //上面两个节点组成的一个根节点,data为空是为解码
             HuffManNode<String> rootNode = new HuffManNode<String>("", leastNode.count + lessNode.count);
             //左孩子为最小的那个
             rootNode.lchild = leastNode;
@@ -148,7 +148,7 @@ public class HuffManTree {
         return listNode.get(0);
     }
 
-    //找出每个单词对应的哈夫曼编码
+    //找出每个单词对应的哈夫曼编码,形式为: a -----> 010100
     private void recurisveFindHuffManCode(HuffManNode<String> rootNode, Map<String, String> wordCode, String code) {
         if (rootNode == null)
             return;

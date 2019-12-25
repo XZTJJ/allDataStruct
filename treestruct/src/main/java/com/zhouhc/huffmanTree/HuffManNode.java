@@ -15,11 +15,11 @@ public class HuffManNode<T> implements Serializable {
     public HuffManNode lchild;
     //右孩子
     public HuffManNode rchild;
-    //左边值0,或者其他值
+    //左边值0,或者其他值(用于其他树类型，哈夫曼树用不到)
     public int lTag;
-    //左边值0,或者其他值
+    //右边值1,或者其他值(用于其他树类型，哈夫曼树用不到)
     public int rTag;
-    //出现的频率
+    //出现的频率，用于比较，构建哈夫曼树
     public long count;
 
     public HuffManNode() {

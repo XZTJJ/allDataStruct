@@ -8,6 +8,9 @@ import java.io.Serializable;
  * @Author: zhouhc
  * @CreateDate: 2019/11/18 0:35
  */
+
+//树节点，data数据与.lchild和rchild是左右孩子，lTag和rTag是标识，标识是孩子还是线索
+//一般除了线索二叉树外，lTag和rTag是不需要的
 public class BinaryTreeNode<T> implements Serializable {
     public T data;
     public BinaryTreeNode lchild;

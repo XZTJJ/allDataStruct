@@ -13,7 +13,9 @@ import java.util.Arrays;
  * @CreateDate: 2019/10/8 23:06
  */
 
-//KMP匹配算法
+//KMP匹配算法，KMP算法最核心的就是求出nexct[],
+//因为有了next数组 ，匹配错误时，主串不用回溯，继续从当前位置匹配
+//而模式串也不用回溯到0的位置，回溯位置是由Next[j]的值决定
 public class StringKMP {
 
     private static Logger LOG = LoggerFactory.getLogger(StringKMP.class);

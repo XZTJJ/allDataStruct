@@ -27,6 +27,8 @@ public class StringSimple {
 
     }
 
+    //朴素比配算法的缺点就是: 每次匹配错误，主串都要回溯到
+    // 主串当前下标索引-模式串下标索引+1的位置，而模式串回溯到0的位置
     private int match(String tText,String pText){
         //转成数组
         char[] tArray = tText.toCharArray();
