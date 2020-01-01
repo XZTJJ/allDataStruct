@@ -1,4 +1,4 @@
-package com.zhouhc.alldatastruct;
+package com.zhouhc.datastruct;
 
 import static org.junit.Assert.assertTrue;
 
