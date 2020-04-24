@@ -54,14 +54,14 @@ public class AvlTreeTest {
         }
 
         //测试删除
-        while(reportList.size() > 0){
-            int index = random.nextInt(reportList.size());
-            int  data = reportList.get(index);
+        while(intList.size() > 0){
+            int index = random.nextInt(intList.size());
+            int  data = intList.get(index);
             //刪除操作
             rootNode = avlTreePeo.delAvlNode(rootNode,data);
             String[] sArray = avlTreePeo.minddleSort(rootNode);
             LOG.info("删除后"+data+",整棵树的中序遍历结果为：" + Arrays.toString(sArray));
-            reportList.remove(index);
+            intList.remove(index);
         }
 
     }
