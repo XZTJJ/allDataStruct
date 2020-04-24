@@ -35,8 +35,7 @@ public class AvlTreeTest {
                 count++;
             intList.add(i);
         }
-        //intList = new ArrayList<Integer>(Arrays.asList(new Integer[]{4, 30, 92, 59, 31, 66, 61, 35, 47, 92, 4, 4, 3, 23, 97, 95, 14, 34, 71, 55, 13, 55, 33, 81}));
-        intList = new ArrayList<Integer>(Arrays.asList(new Integer[]{20,10,30,5,15,25,35,0,7,12,17}));
+
         //转成数组
         LOG.info("测试样例为：[" + StringUtils.join(intList.toArray(),", ")+ "]");
         //用于输出排重后的样例
@@ -53,15 +52,16 @@ public class AvlTreeTest {
             String[] sArray = avlTreePeo.minddleSort(rootNode);
             LOG.info("插入后"+intList.get(i)+",整棵树的中序遍历结果为：" + Arrays.toString(sArray));
         }
+
         //测试删除
-        while(intList.size() > 0){
-            int index = random.nextInt(intList.size());
-            int  data = 20;
+        while(reportList.size() > 0){
+            int index = random.nextInt(reportList.size());
+            int  data = reportList.get(index);
             //刪除操作
             rootNode = avlTreePeo.delAvlNode(rootNode,data);
             String[] sArray = avlTreePeo.minddleSort(rootNode);
             LOG.info("删除后"+data+",整棵树的中序遍历结果为：" + Arrays.toString(sArray));
-            intList.remove(index);
+            reportList.remove(index);
         }
 
     }

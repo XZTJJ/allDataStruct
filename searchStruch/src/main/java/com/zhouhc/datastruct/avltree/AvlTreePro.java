@@ -251,6 +251,7 @@ public class AvlTreePro {
     }
 
     //删除结点操作
+
     /**
      * @rootNode 根结点
      * @key 要删除的关键字
@@ -263,6 +264,7 @@ public class AvlTreePro {
     }
 
     //删除操作的递归方法
+
     /**
      * @rootNode 根结点
      * @key 要删除的关键字
@@ -306,11 +308,17 @@ public class AvlTreePro {
             return null;
         }
         //寻找前序,
-        if (delNode.lchild != null)
-            delNode = recusionPreOrPostNode(delNode, delNode, delNode.lchild, true);
-            //寻找后继
-        else
-            delNode = recusionPreOrPostNode(delNode, delNode, delNode.rchild, false);
+        if (delNode.lchild != null) {
+            delNode.lchild = recusionPreOrPostNode(delNode, delNode, delNode.lchild, true);
+            if (treeHightChange)
+                delNode = delBalance(delNode, true);
+        }
+        //寻找后继
+        else {
+            delNode.rchild = recusionPreOrPostNode(delNode, delNode, delNode.rchild, false);
+            if (treeHightChange)
+                delNode = delBalance(delNode, false);
+        }
         //返回删除后的结点
         return delNode;
     }
@@ -321,55 +329,63 @@ public class AvlTreePro {
         if (isPre) {
             //多加这一步的操作，是为了解决删除前驱，java删除前驱需要有父结点
             if (preORPostNode.rchild == null) {
+                //树高度发生了变化
+                treeHightChange = true;
                 //说明preORPostNode就是前驱了，修改对应的值
                 delNode.data = preORPostNode.data;
                 //处理delNode的前驱是 delNode直接左孩子的情况
                 if (delNode == parentNode) {
                     //通过父结点删除前驱结点,使用前驱左孩子替代前驱，因为非常有可能前驱是还有左孩子的
                     parentNode.lchild = preORPostNode.lchild;
-                    //只有一层是，左孩子就是前驱
-                    isPre = false;
-                }
-                else
+                    //清空
+                    preORPostNode = preORPostNode.lchild;
+                    return preORPostNode;
+                } else {
                     //通过父结点删除前驱结点,使用前驱左孩子替代前驱，因为非常有可能前驱是还有左孩子的
                     parentNode.rchild = preORPostNode.lchild;
-                //树高度发生了变化
-                treeHightChange = true;
-                //返回结点，最后一步不需要纠偏
-                //return parentNode;
+                    //清空
+                    preORPostNode = preORPostNode.lchild;
+                    //返回结点，最后一步不需要纠偏
+                    return preORPostNode;
+                }
             } else
                 //表明还没有找到前驱
-                parentNode = recusionPreOrPostNode(delNode, preORPostNode, preORPostNode.rchild, true);
+                preORPostNode.rchild = recusionPreOrPostNode(delNode, preORPostNode, preORPostNode.rchild, true);
         }
         //说明找的后继
         else {
             //多加这一步的操作，是为了解决删除后继，java删除后继需要有父结点
             if (preORPostNode.lchild == null) {
+                //树高度发生了变化
+                treeHightChange = true;
                 //说明preORPostNode就是后继了，修改对应的值
                 delNode.data = preORPostNode.data;
                 //处理delNode的后继是 delNode直接右孩子的情况
                 if (delNode == parentNode) {
                     //通过父结点删除后继结点,使用后继右孩子替代后继，因为非常有可能后继是还有右孩子的
                     parentNode.rchild = preORPostNode.rchild;
-                    //只有一层是，右孩子就是是驱
-                    isPre = false;
-                }
-                else
+                    //清空
+                    preORPostNode = preORPostNode.rchild;
+                    //这里是直接返回左孩子的
+                    return preORPostNode;
+                } else {
+                    //因为右后继，所以才这么
                     parentNode.lchild = preORPostNode.rchild;
-                //树高度发生了变化
-                treeHightChange = true;
-                //返回结点，最后一步不需要纠偏
-                //return parentNode;
+                    //清空
+                    preORPostNode = preORPostNode.rchild;
+                    //返回结点，最后一步不需要纠偏
+                    return preORPostNode;
+                }
             } else
                 //表明还没有找到后继
-                preORPostNode = recusionPreOrPostNode(delNode, preORPostNode, preORPostNode.lchild, false);
+                preORPostNode.lchild = recusionPreOrPostNode(delNode, preORPostNode, preORPostNode.lchild, false);
         }
         //这个时候需要纠偏操作,只有数据额高度发生了变化才执行纠偏操作
         if (treeHightChange)
-            parentNode = delBalance(parentNode, !isPre);
+            preORPostNode = delBalance(preORPostNode, !isPre);
 
         //返回数据
-        return parentNode;
+        return preORPostNode;
     }
 
     //纠正树的平衡方法处理,删除时用到，需要返回纠偏完成的结点
