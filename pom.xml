@@ -16,6 +16,7 @@
         <module>commomtools</module>
         <module>graphicsstruct</module>
         <module>searchStruch</module>
+        <module>sortStruct</module>
     </modules>
 
     <name>alldatastruct</name>
