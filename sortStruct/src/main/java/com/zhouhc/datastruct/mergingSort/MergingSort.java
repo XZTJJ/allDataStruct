@@ -62,6 +62,55 @@ public class MergingSort {
             tempArrays[start] = sortingArrays[start++];
     }
 
+    //非递归版本的排序,比较好理解的版本，是维基百科上面的
+    public static void merge_sort(int[] arr) {
+        int[] orderedArr = new int[arr.length];
+        //表示剩余的序列，只有剩余1个序列才算归并完成，i可以表示每次归并的后的数组的大小，从2,4,8,16...
+        for (int i = 2; i < arr.length * 2; i *= 2) {
+            //表示每次对于当前归并数组的大小， 总共要合并多少次 (arr.length - 1  + i ) / i
+            for (int j = 0; j < (arr.length + i - 1) / i; j++) {
+                int left = i * j;
+                //越界判断
+                int mid = left + i / 2 >= arr.length ? (arr.length - 1) : (left + i / 2);
+                //越界判断
+                int right = i * (j + 1) - 1 >= arr.length ? (arr.length - 1) : (i * (j + 1) - 1);
+                int start = left, l = left, m = mid;
+                while (l < mid && m <= right) {
+                    if (arr[l] < arr[m]) {
+                        orderedArr[start++] = arr[l++];
+                    } else {
+                        orderedArr[start++] = arr[m++];
+                    }
+                }
+                while (l < mid)
+                    orderedArr[start++] = arr[l++];
+                while (m <= right)
+                    orderedArr[start++] = arr[m++];
+                System.arraycopy(orderedArr, left, arr, left, right - left + 1);
+            }
+        }
+    }
+
+    //递归版本的排序,比较好理解的版本，是维基百科上面的
+    private static void merge_sort_recursive(int[] arr, int[] result, int start, int end) {
+        if (start >= end)
+            return;
+        int len = end - start, mid = (len >> 1) + start;
+        int start1 = start, end1 = mid;
+        int start2 = mid + 1, end2 = end;
+        merge_sort_recursive(arr, result, start1, end1);
+        merge_sort_recursive(arr, result, start2, end2);
+        int k = start;
+        while (start1 <= end1 && start2 <= end2)
+            result[k++] = arr[start1] < arr[start2] ? arr[start1++] : arr[start2++];
+        while (start1 <= end1)
+            result[k++] = arr[start1++];
+        while (start2 <= end2)
+            result[k++] = arr[start2++];
+        for (k = start; k <= end; k++)
+            arr[k] = result[k];
+    }
+
     //非递归版本的排序
     public static Integer[] iSort(Integer[] sortingArrys) {
         Integer[] resultArrays = Arrays.copyOf(sortingArrys, sortingArrys.length);
